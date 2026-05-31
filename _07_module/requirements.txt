@@ -1,0 +1,14 @@
+# pip install -r requirements.txt 실습용 의존성 목록
+#
+# 실행 위치:
+#   cd 01_python/_07_module
+#
+# 설치:
+#   python -m pip install -r requirements.txt
+#
+# 설치 확인:
+#   python _05_pip_requirements_practice.py
+
+requests==2.32.3
+colorama==0.4.6
+python-dotenv==1.0.1

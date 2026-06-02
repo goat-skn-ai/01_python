@@ -6,44 +6,44 @@
 
 print('--- set ---')
 st = {2, 3, 2, 3, 1, 2, 3, 4, 3, 2}
-print(st, type(st))
+print('st:', st, type(st))
 
 # list 중복제거
 print('--- set을 이용한 list 중복제거 ---')
 lst = [2, 3, 2, 3, 1, 2, 3, 4, 3, 2]
 st2 = set(lst)
-print(st2)
+print('set(lst):', st2)
 lst2 = list(st2)
-print(lst2)
+print('list(set(lst)):', lst2)
 # 주의: list -> set -> list 변환은 중복을 제거하지만, 원래 순서를 보존하는 용도로 설명하면 안 된다.
 
 # tuple 중복제거
 print('--- set을 이용한 tuple 중복제거 ---')
 tpl = ('a', 'b', 'b', 'c', 'x', 'c', 'x', 'a')
-print(tuple(set(tpl)))
+print('tuple(set(tpl)):', tuple(set(tpl)))
 
 # 요소 추가
 print('--- set add ---')
 my_nums = {20, 30, 40}
 my_nums.add(50)
-print(my_nums)
+print('add(50) 후 my_nums:', my_nums)
 
 # 요소 제거
 print('--- set remove/discard ---')
 my_nums.remove(50) # 삭제하고자 하는 값을 전달
 # my_nums.remove(100) # KeyError: 100 존재하지 않는 값을 삭제시 오류
 my_nums.discard(100) # 값이 없어도 오류나지 않음
-print(my_nums)
+print('remove(50), discard(100) 후 my_nums:', my_nums)
 
 # 반복순회가능 (iterable객체)
 print('--- set 순회 ---')
 for v in my_nums:
-    print(v)
+    print('요소:', v)
 
 # 모든 요소 제거
 print('--- set clear ---')
 my_nums.clear()
-print(my_nums)
+print('clear() 후 my_nums:', my_nums)
 
 # 집합연산
 print('--- set 집합연산 ---')

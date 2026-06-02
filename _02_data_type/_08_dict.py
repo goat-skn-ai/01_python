@@ -16,50 +16,50 @@ dct = {
     'b': 20,
     'a': 100 # 중복된 key를 등록하면, 덮어써진다.
 }
-print(dct, type(dct))
+print('dct:', dct, type(dct))
 
 # key로 사용할 수 있는 타입과 없는 타입
 point_map = {
     (10, 20): '서울 좌표'
 }
-print(point_map[(10, 20)])
+print("point_map[(10, 20)]:", point_map[(10, 20)])
 # invalid_key_map = {[10, 20]: '서울 좌표'} # TypeError: unhashable type: 'list'
 
 # 요소 조회
 print('--- dict 조회 ---')
-print(dct['a'], dct['b'])
+print("dct['a'], dct['b']:", dct['a'], dct['b'])
 key = 'a'
-print(dct[key])
+print('dct[key]:', dct[key])
 
 # print(dct['c']) # KeyError: 'c'
-print(dct.get('a'))
-print(dct.get('c')) # 존재하지 않는 key값조회시 기본값 처리 (None)
-print(dct.get('c', '값 없음')) # 존재하지 않는 key값조회시 기본값 처리 (None)
+print("dct.get('a'):", dct.get('a'))
+print("dct.get('c'):", dct.get('c')) # 존재하지 않는 key값조회시 기본값 처리 (None)
+print("dct.get('c', '값 없음'):", dct.get('c', '값 없음')) # 존재하지 않는 key값조회시 기본값 처리 (None)
 
 # 요소 추가
 print('--- dict 추가 ---')
 dct['c'] = 3
 dct.update(d=4) # key=value 형식으로 작성
 dct.update({'e': 5, 'f': 6})
-print(dct)
+print('추가 후 dct:', dct)
 
 # 값(value) 제거
 print('--- dict value 제거 ---')
 dct['f'] = None
-print(dct)
+print("dct['f'] = None 후 dct:", dct)
 
 # 요소(item) 제거
 print('--- dict item 제거 ---')
 dct.pop('f')
-print(dct)
+print("pop('f') 후 dct:", dct)
 
 # dict 내장함수
 print('--- dict 내장함수 ---')
 dct2 = dict(name='홍길동', age=22)
-print(dct2)
+print('dict(name=..., age=...):', dct2)
 # key/value로 구성된 tuple을 list로 전달
 dct3 = dict([('name', '신사임당'), ('age', 33)])
-print(dct3)
+print("dict([('name', ...), ('age', ...)]):", dct3)
 
 # dict api
 # - https://docs.python.org/ko/3.13/library/stdtypes.html#dict
@@ -67,44 +67,47 @@ print(dct3)
 # dict.keys()
 print('--- dict keys ---')
 keys = dct3.keys()
-print(keys, type(keys)) # <class 'dict_keys'>
+print('dct3.keys():', keys, type(keys)) # <class 'dict_keys'>
 
 # dict.values()
 print('--- dict values ---')
 values = dct3.values()
-print(values, type(values)) # <class 'dict_values'>
+print('dct3.values():', values, type(values)) # <class 'dict_values'>
 
 # dict.items()
 print('--- dict items ---')
 items = dct3.items()
-print(items, type(items)) # <class 'dict_items'>
+print('dct3.items():', items, type(items)) # <class 'dict_items'>
 
 # dict 반복순회 (iterable)
 print('--- dict 순회 (key만 꺼냄)---')
 for key in dct3:
-    print(f'{key} = {dct3[key]}')
+    print('key로 조회한 값:', f'{key} = {dct3[key]}')
 
 print('--- dict keys 순회 ---')
 for key in dct3.keys():
-    print(f'{key} = {dct3[key]}')
+    print('keys()로 조회한 값:', f'{key} = {dct3[key]}')
 
 print('--- dict values 순회 ---')
 for value in dct3.values():
-    print(value)
+    print('value:', value)
 
 print('--- dict items 순회 ---')
 for item in dct3.items():
-    print(item, type(item)) # <class 'tuple'>
+    print('item:', item, type(item)) # <class 'tuple'>
 
+# unpacking
 print('--- dict items unpacking ---')
 for key, value in dct3.items():
-    print(key, value)
+    print('key, value:', key, value)
 
 print('--- tuple unpacking ---')
 abc = ('A', 'a')
 m, n = abc
-print(m, n)
+print('m, n:', m, n)
 
+
+# dict 복사
 # 대입: 같은 객체를 함께 바라보도록 참조주소를 복사
 # 얕은 복사 (shallow copy): 새 컨테이너 객체를 만들지만, 내부 중첩 객체는 공유할 수 있다.
 # 깊은 복사 (deep copy): 내부 중첩 객체까지 재귀적으로 새로 복사
@@ -115,27 +118,32 @@ sample = {
 }
 
 # 얕은복사
-print('--- dict 얕은 복사 ---')
+print('\n\n--- dict 얕은 복사 ---')
 other = sample
-print(id(sample), id(other))
+print('id(sample), id(other):', id(sample), id(other))
+
+print("before sample['name']:", sample['name'])
+print("before other['name']:", other['name'])
 
 sample['name'] = '멋진 키보드'
-print(other['name'])
+
+print("after sample['name']:", sample['name'])
+print("after other['name']:", other['name'])
 
 # 같은 객체여부 검사
-print(sample is other) # True
+print('sample is other:', sample is other) # True
 
 # dict.copy()는 새 dict 객체를 만드는 얕은 복사이다.
 # 현재 sample처럼 중첩 객체가 없는 단순 dict에서는 깊은 복사처럼 보일 수 있다.
-print('--- dict 얕은 복사: copy() ---')
+print('\n\n--- dict 얕은 복사: copy() ---')
 another = sample.copy()
-print(id(sample), id(another))
-print(sample is another) # False
+print('id(sample), id(another):', id(sample), id(another))
+print('sample is another:', sample is another) # False
 
 sample['price'] *= 10
-print(sample)
+print('sample 변경 후 sample:', sample)
 
-print(another)
+print('sample 변경 후 another:', another)
 
 # 중첩 객체가 있는 경우 copy()와 deepcopy()의 차이가 드러난다.
 print('--- 중첩 dict copy()와 deepcopy() 비교 ---')
@@ -162,7 +170,7 @@ prices = [10_000, 20_000, 30_000]
 # [대입] prices와 prices_copy가 같은 list 객체를 함께 바라본다.
 prices_copy = prices
 prices.append(40_000)
-print(prices_copy)
+print('대입 후 prices_copy:', prices_copy)
 
 # [copy()] prices의 복사본을 만들어 각각 10% 값을 올려서 관리 (원본은 변경되면 안됨)
 new_prices = prices.copy()
@@ -170,5 +178,5 @@ new_prices[0] *= 1.1
 new_prices[1] *= 1.1
 new_prices[2] *= 1.1
 new_prices[3] *= 1.1
-print(prices)
-print(new_prices)
+print('원본 prices:', prices)
+print('copy() 후 수정한 new_prices:', new_prices)

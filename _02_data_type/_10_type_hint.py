@@ -8,7 +8,7 @@
 print('--- 동적 타이핑 ---')
 x = '안녕'
 x = 123
-print(type(x))
+print('type(x):', type(x))
 
 print('--- 함수 정의 ---')
 def act(x):
@@ -17,14 +17,14 @@ def act(x):
     :param x:
     :return:
     """
-    print(x)
+    print('act 함수에 전달된 x:', x)
 
 # type hint
 print('--- type hint ---')
 greeting: str = 'Hello'
 # type hint를 str로 작성했지만, 런타임에서는 int 재대입을 막지 않는다.
 greeting = 123
-print(greeting)
+print('greeting:', greeting)
 
 n: float = 123.456
 score: int = 90
@@ -47,4 +47,4 @@ print('--- Final 상수 표현 ---')
 MAX_COUNT: Final[int] = 10
 # Final 역시 정적 분석 도구를 위한 힌트이며, 파이썬 런타임이 재대입을 직접 막지는 않는다.
 MAX_COUNT = 5
-print(MAX_COUNT)
+print('MAX_COUNT:', MAX_COUNT)

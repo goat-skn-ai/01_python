@@ -22,8 +22,8 @@
 #    - .venv는 가상환경 폴더 이름이다. 관례적으로 프로젝트 루트나 실습 폴더에 .venv라는 이름을 많이 쓴다.
 #
 # 2. 가상환경 활성화
-#    macOS/Linux: source .venv/bin/activate
 #    Windows    : .venv\Scripts\activate
+#    macOS/Linux: source .venv/bin/activate
 #
 #    설명:
 #    - 활성화하면 터미널 프롬프트 앞에 (.venv)처럼 표시된다.

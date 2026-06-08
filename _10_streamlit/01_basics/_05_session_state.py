@@ -4,6 +4,8 @@ st.title("Session State")
 
 st.header("Counter")
 
+# - Streamlit은 버튼 클릭 같은 사용자 상호작용이 발생하면 스크립트를 위에서 아래로 다시 실행한다.
+# - 그래서 일반 변수는 매번 다시 초기화되고, session_state는 같은 사용자 세션 안에서 값을 유지한다.
 count: int = 0 # 초기화
 
 if st.button('버튼'):

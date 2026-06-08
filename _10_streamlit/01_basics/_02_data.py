@@ -10,6 +10,7 @@ import pandas as pd
 st.title("😊Data😊")
 
 st.header("pandas' DataFrame")
+
 # 정형데이터 (행/열)
 # - dict전달 (컬럼명:컬럼값)
 students_df = pd.DataFrame({
@@ -43,4 +44,4 @@ st.dataframe(df.style.highlight_max(subset="Sales", color="lightgreen")
 st.dataframe(df, column_config={
     "Sales": st.column_config.NumberColumn("Total Sales", format="%d units"),
     "Growth (%)": st.column_config.NumberColumn("Growth Percentage", format="%.1f%%")
-}, use_container_width=True)
+}, width="stretch")
